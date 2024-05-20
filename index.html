@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Portfolio</title>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <!-- Font Awesome CDN -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <style>
+        /* Add custom styles here if needed */
+        body {
+            scroll-behavior: smooth;
+            animation: fadeInAnimation ease 2s;
+            animation-iteration-count: 1;
+            animation-fill-mode: forwards;
+        }
+
+        @keyframes fadeInAnimation {
+            0% {
+                opacity: 0;
+            }
+            100% {
+                opacity: 1;
+            }
+        }
+
+        /* Navbar animation */
+        .nav-link {
+            animation: fadeInAnimationNav ease 2s;
+            animation-iteration-count: 1;
+            animation-fill-mode: forwards;
+        }
+
+        @keyframes fadeInAnimationNav {
+            0% {
+                opacity: 0;
+            }
+            100% {
+                opacity: 1;
+            }
+        }
+
+        /* Welcome animation */
+        #home {
+            animation: fadeInRightToLeft ease 2s;
+            animation-iteration-count: 1;
+            animation-fill-mode: forwards;
+        }
+
+        @keyframes fadeInRightToLeft {
+            0% {
+                opacity: 0;
+                transform: translateX(100%);
+            }
+            100% {
+                opacity: 1;
+                transform: translateX(0%);
+            }
+        }
+
+        /* About animation */
+        #about {
+            animation: fadeInLeftToRight ease 2s;
+            animation-iteration-count: 1;
+            animation-fill-mode: forwards;
+        }
+
+        @keyframes fadeInLeftToRight {
+            0% {
+                opacity: 0;
+                transform: translateX(-100%);
+            }
+            100% {
+                opacity: 1;
+                transform: translateX(0%);
+            }
+        }
+
+        /* Image hover effect */
+        .project-img {
+            filter: grayscale(100%);
+            transition: filter 0.3s ease-in-out;
+        }
+
+        .project-img:hover {
+            filter: grayscale(0%);
+        }
+
+        /* Background blur effect for cards */
+        .card {
+            backdrop-filter: blur(8px);
+            background-color: rgba(255, 255, 255, 0.5); /* Adjust opacity as needed */
+        }
+
+        /* Set font color to black */
+        .project-title {
+            color: black;
+        }
+    </style>
+</head>
+
+<body class="bg-gray-900 text-white">
+    <!-- Navbar -->
+    <nav class="bg-gray-900 text-white p-8">
+        <div class="container mx-auto flex justify-between items-center">
+            <a href="#" class="text-xl font-bold pl-16 nav-link" onclick="refreshPage()">My Portfolio</a>
+            <img class="w-12 absolute left-7 border p-1" src="devicon.png" alt="developer-icon">
+            <ul class="flex space-x-16 mr-8">
+                <li><a href="#home" class="text-xl font-bold nav-link">Home</a></li>
+                <li><a href="#about" class="text-xl font-bold nav-link">About</a></li>
+                <li><a href="#contact" class="text-xl font-bold nav-link">Contact</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Home Section -->
+    <section id="home" class="py-20">
+        <div class="flex justify-center items-center">
+            <img class="mb-20" src="portfolioImg.jpg" alt="">
+        </div>
+
+        <div class="container w-1/2 mx-auto text-center">
+            <h1 class="text-4xl font-bold mb-4">Welcome to My Portfolio</h1>
+            <p class="text-lg">I am showcasing my work here.</p>
+            <div class="grid grid-cols-1 mt-10">
+                <!-- Project 1 -->
+                <div class="card rounded-lg p-6 shadow-md">
+                    <a href="https://www.freecodecamp.org/certification/fcc01172490-fdd7-4999-b7bb-5921c1d216f0/responsive-web-design">
+                        <img class="w-full project-img mb-4" src="freecodecamp.JPG" alt="freecodecamp">
+                    </a>
+                    <p class="text-lg font-bold project-title">Freecodecamp Responsive Web Design Project</p>
+                    <a href="https://www.freecodecamp.org/certification/fcc01172490-fdd7-4999-b7bb-5921c1d216f0/responsive-web-design" class="inline-block mt-2 px-4 py-2 bg-blue-500 text-white font-semibold rounded-md hover:bg-blue-600 transition duration-200">Visit</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="py-20 bg-gray-900">
+        <div class="container mx-auto text-center">
+            <h2 class="text-3xl font-bold mb-4">About Me</h2>
+            <div class="flex justify-center items-center">
+                <img class="rounded-full h-80" src="aw.jpg" alt="photo">
+            </div>
+            <div class="flex items-center justify-center text-center">
+                <p class="w-1/3 text-lg mt-20">I am a graduate of Bachelor of Science in Information Technology in Dalubhasaan ng Lungsod ng Lucena and aspiring web developer passionate about learning technologies.</p>
+            </div>
+            
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="py-20 bg-gray-900">
+        <div class="container mx-auto text-center">
+            <h2 class="text-3xl font-bold mb-4 text-white">Get In Touch</h2>
+            <div class="max-w-lg mx-auto">
+                <p class="text-lg text-gray-400 mb-8">Have a project in mind or want to discuss something? Feel free to drop me a message.</p>
+                <form id="contactForm" class="grid grid-cols-1 gap-6">
+                    <input type="text" id="name" name="name" placeholder="Your Name"
+                        class="block w-full bg-gray-800 text-white border border-gray-600 rounded-md py-3 px-4 placeholder-gray-400 focus:outline-none focus:border-blue-500">
+                    <input type="email" id="email" name="email" placeholder="Your Email"
+                        class="block w-full bg-gray-800 text-white border border-gray-600 rounded-md py-3 px-4 placeholder-gray-400 focus:outline-none focus:border-blue-500">
+                    <textarea id="message" name="message" rows="4" placeholder="Your Message"
+                        class="block w-full bg-gray-800 text-white border border-gray-600 rounded-md py-3 px-4 placeholder-gray-400 focus:outline-none focus:border-blue-500"></textarea>
+                    <button type="submit"
+                        class="w-full bg-blue-500 text-white font-semibold rounded-md py-3 px-6 hover:bg-blue-600 focus:outline-none focus:bg-blue-600 transition duration-200">Send Message</button>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-gray-900 text-white text-center py-4">
+        <p>&copy; 2024 Jazzpher Auguis. All rights reserved.</p>
+        <!-- Social Media Icons -->
+        <div class="flex justify-center mt-4">
+            <a href="https://linkedin.com/in/jazzpherauguis" class="text-gray-400 text-4xl hover:text-gray-300 mx-6"><i class="fab fa-linkedin fa-lg"></i></a>
+            <a href="https://www.facebook.com/jzzphrgs/" class="text-gray-400 text-4xl hover:text-gray-300 mx-6"><i class="fab fa-facebook-square fa-lg"></i></a>
+            <a href="https://github.com/jazzpher" class="text-gray-400 text-4xl hover:text-gray-300 mx-6"><i class="fab fa-github-square fa-lg"></i></a>
+        </div>
+    </footer>
+
+    <script>
+        // JavaScript function to refresh the page
+        function refreshPage() {
+            window.location.reload();
+        }
+
+        // JavaScript for form submission
+        document.getElementById('contactForm').addEventListener('submit', function (event) {
+            event.preventDefault();
+            // You can add your form submission logic here
+            alert('Form submitted successfully!');
+            // Reset the form
+            this.reset();
+        });
+    </script>
+</body>
+
+</html>
